@@ -23,7 +23,7 @@ if ($conn->connect_error) die($conn->connect_error);
 	
 # construct query
 $query = 'SELECT * FROM `games` ORDER BY RAND() LIMIT 10';
-//'SELECT creator.creator_name
+//'SELECT games.name, creator.creator_name, games.upload_date, games.rating, games.description, games.url
 //FROM creator
 //INNER JOIN games ON creator.creator_name=games.creator_id';
 	//
