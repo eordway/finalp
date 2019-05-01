@@ -19,9 +19,9 @@ include_once("flashheader.php");
 # connect to db
 $conn = new mysqli("localhost", "root", "", "eordway");
 if ($conn->connect_error) die($conn->connect_error);
+	
+	
 # construct query
-
-
 $query = 'SELECT * FROM `games` ORDER BY RAND() LIMIT 10';
 'SELECT games.name, games.upload_date, games.rating
 FROM creator
@@ -32,10 +32,9 @@ $result = $conn->query($query);
 if (!$result) die($conn->error);
 # output to user 
 
-#if ($result->num_rows > 0) 
 	
 
-
+#printing table and column headings
 echo '<table id= "hometable" border="1px" cellspacing="2" cellpadding="2"> 
       <tr> 
           <td> <font face="Arial">Game</font> </td> 
@@ -46,6 +45,7 @@ echo '<table id= "hometable" border="1px" cellspacing="2" cellpadding="2">
           <td> <font face="Arial">Location</font> </td> 
       </tr>';
  
+#return elements from database while they are not null, store in variable
     while ($row = $result->fetch_assoc()) {
         $field1name = $row["name"];
 		$field2name = $row["creator_id"];
@@ -54,6 +54,7 @@ echo '<table id= "hometable" border="1px" cellspacing="2" cellpadding="2">
         $field5name = $row["description"];
         $field6name = $row["url"]; 
  
+#echo variables in table rows 	    
         echo '<tr> 
                   <td>'.$field1name.'</td> 
                   <td>'.$field2name.'</td> 
