@@ -20,7 +20,7 @@ if (!isset($_SESSION['login_name'])) {
 	echo '</div>';
 }
 
-$conn = new mysqli("localhost", "eordway_mysql", "VKIpn7Ae7yYT", "eordway");
+$conn = new mysqli("localhost", "", "", "eordway");
 if ($conn->connect_error) die($conn->connect_error);
 
 $name= $_POST['game_name'];
