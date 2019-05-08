@@ -1,0 +1,167 @@
+
+
+
+#hometable{
+	border: 2px solid black;
+	border-collapse: collapse;
+	width: 70%;
+	background-color: #E85050;
+	right: 100px;
+	padding: 2em;
+	margin: auto;
+	
+	}
+
+#home{
+	
+	padding: 10px;
+}
+	
+	
+body
+{
+  
+	font-family: "Times New Roman", Times, serif;
+	background-color: #ffef96;
+}
+
+#addone{
+	  position: relative;
+  bottom: 3px;
+  width: 50%;
+  text-align: right;
+  
+  
+}
+
+#columns{
+background-color: white;
+	font-family: "Times New Roman", Times, serif;
+		height: 50px;
+
+
+}
+
+tr, td{
+border: 2px solid black;
+overflow: hidden;
+word-wrap: break-word;
+}
+
+tr:nth-child(even) {
+	background-color: #f2f2f2;
+	}
+	
+
+
+#home{
+	float: bottom;
+}
+#menu-bar{
+	height: 100;
+	font-size: 17px;
+	border: 2px dashed #E85050;
+	list-style-type: none;
+	margin: auto;
+	z-index: 0;
+	top: 0;
+	left: 0;
+  padding: 15px;
+  background-color: #f1f1f1;
+  position: fixed; 
+  top: 0; 
+  width: 10%; 
+  position: fixed;
+  border-radius: 25px;
+  
+}
+
+
+#databasesort {
+
+	list-style-type: none;
+	
+}
+  
+#dbsort{
+margin: auto;
+position: fixed;
+top: 100px;
+  padding: 70px 0;
+
+
+}
+
+#hometitle{
+	margin: auto;
+	width: 50%;
+}
+
+ #genretable, #ratingtable, #creatortable, #datetable{
+	 	border-collapse: collapse;
+		margin: auto;
+		width: 75%;
+			font-family: "Times New Roman", Times, serif;
+
+
+ }
+ 
+ 
+ #loginstyle{
+	 
+	 margin:auto;
+	 width: 75%;
+
+
+ }
+	
+#loggedinstyle{
+	margin:auto;
+	 width: 100px;
+
+
+	 }
+
+	 #newgamestyle{
+
+
+     background-color: #E85050;
+	 position: relative; 
+	 margin: auto;
+	 width: 30%;
+	  border-radius: 25px;
+	    padding: 15px;
+		  	border: 2px dashed black;
+float: left;			
+
+
+
+	 }	 
+	 
+	 #formstyle{
+		 	margin:auto;
+	 width: 75%;
+	 
+	 
+	 }
+	 
+	 #sessionstart{
+		 
+		margin:auto;
+	 width: 30%; 
+	 }
+	 
+		 
+		 
+#addcreator{
+	margin:auto;
+	 width: 75%;
+	
+}
+
+
+#registerform{
+	
+	margin:auto;
+	 width: 75%;
+}
