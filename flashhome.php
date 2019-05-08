@@ -1,62 +1,52 @@
 <?php
-$date= date ("Y-m-d");
-setcookie("date", $date);
-setcookie("name", "em");
+session_start();
+
 ?>
 <!DOCTYPE html>
 <html>
 <head> 
- <link rel = "stylesheet"
-   type = "text/css"
-   href = "flashstyle.css" />
-   <title>Flash Game Database</title>
-  </head>
+  <link rel="stylesheet" type="text/css" href="flashstyle.css">
+   <title>Home</title>
+<style><?php include_once 'flashstyle.css';?></style>
+</head>
 <body>
-<h2> Greetings!!</h2>
+<h2 id= "hometitle">Welcome to the Flash Games Database!</h2>
+<br>
 <?php
 include_once("flashheader.php");
 
-# connect to db
-$conn = new mysqli("localhost", "root", "", "eordway");
+
+$conn = new mysqli("localhost", "eordway_mysql", "VKIpn7Ae7yYT", "eordway");
 if ($conn->connect_error) die($conn->connect_error);
-	
-	
-# construct query
-$query = 'SELECT * FROM `games` ORDER BY RAND() LIMIT 10';
-	
-//'SELECT games.name, creator.creator_name, games.upload_date, games.rating, games.description, games.url
-//FROM creator
-//INNER JOIN games ON creator.creator_id=games.creator_id';
 
 
-# send to db
+$query = 'SELECT * FROM `creator` NATURAL JOIN `games` creator_id ORDER BY RAND() LIMIT 3';
+
 $result = $conn->query($query);
 if (!$result) die($conn->error);
-# output to user 
 
 	
 
-#printing table and column headings
-echo '<table id= "hometable" border="1px" cellspacing="2" cellpadding="2"> 
+
+echo '<table id= "hometable">
+	<thead id= "columns">
       <tr> 
-          <td> <font face="Arial">Game</font> </td> 
-		  <td> <font face="Arial">Creator</font> </td> 
-          <td> <font face="Arial">Date Published</font> </td> 
-          <td> <font face="Arial">Rating</font> </td> 
-          <td> <font face="Arial">Summary</font> </td> 
-          <td> <font face="Arial">Location</font> </td> 
-      </tr>';
- 
-#return elements from database while they are not null, store in variable
+          <th>Game</th> 
+		  <th>Creator</th> 
+          <th>Date Published</th> 
+          <th>Rating</th> 
+          <th>Summary</th> 
+          <th>Location</th> 
+      </tr>
+ </thead>';
     while ($row = $result->fetch_assoc()) {
         $field1name = $row["name"];
-		$field2name = $row["creator_id"];
+		$field2name = $row["creator_name"];
         $field3name = $row["upload_date"];
         $field4name = $row["rating"];
         $field5name = $row["description"];
         $field6name = $row["url"]; 
  
-#echo variables in table rows 	    
         echo '<tr> 
                   <td>'.$field1name.'</td> 
                   <td>'.$field2name.'</td> 
@@ -69,14 +59,37 @@ echo '<table id= "hometable" border="1px" cellspacing="2" cellpadding="2">
     }
 
 
-#include_once("flashfooter.php");
+
 
 ?>
-<p id= "login"><a href="flashloginpage.php">Login</a></p>
 
-<p id= "addone"><a href="newgame.php">Add new game</a></p>
 
-</body>
+
+
+<html>
+
+<div id= "dbsort">
+<h3>Sort by: </h3>
+<ul id = "databasesort">
+<li><form id="sort" action= 'creatorsort.php' method='GET' name= 'creatorsort'>
+
+
+<button type="submit" name="creator_sort" class="button">Creator</button>
+	</form></li>
+<br>
+<li><form action='genresort.php' method='GET' name='genresort'>
+<button type= 'submit' name='genre_sort' class= 'button'>Genre</button>
+</form></li>
+<br>
+<li><form action='ratingsort.php' method='GET' name='ratingsort'>
+<button type="submit" name= 'rating_sort' class="button">Rating</button>
+</form></li>
+<br>
+<li><form action='datesort.php' method='GET' name='datesort'>
+ <button type="submit" name="date_sort" class="button">Date</button>
+ </form></li>
+ </ul>
+ </div>
 </body>
 
 </html>
