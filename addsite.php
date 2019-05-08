@@ -17,7 +17,7 @@ if (!isset($_SESSION['login_name'])) {
 	echo "<h3>Welcome, ".$_SESSION['login_name']."</h3>";
 }
 
-$conn = new mysqli("localhost", "eordway_mysql", "VKIpn7Ae7yYT", "eordway");
+$conn = new mysqli("localhost", "", "", "eordway");
 if ($conn->connect_error) die($conn->connect_error);
 
 $site_url= $_POST['site_url'];
