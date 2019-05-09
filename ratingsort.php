@@ -13,7 +13,7 @@ include_once("flashheader.php");
 
 
 
-$conn = new mysqli("localhost", "eordway_mysql", "VKIpn7Ae7yYT", "eordway");
+$conn = new mysqli("localhost", "", "", "eordway");
 		if ($conn->connect_error) die($conn->connect_error);
 		$query= 'SELECT name, rating, creator_name, genre_name FROM games JOIN creator ON games.creator_id=creator.creator_id JOIN genre on games.genre_id=genre.genre_id ORDER BY rating DESC';
 
