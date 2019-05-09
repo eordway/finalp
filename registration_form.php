@@ -7,7 +7,7 @@
 
 <?php
 
-$conn = new mysqli("localhost", "eordway_mysql", "VKIpn7Ae7yYT", "eordway");
+$conn = new mysqli("localhost", "", "", "eordway");
 if ($conn->connect_error) die($conn->connect_error);
   
 $salt1 = "skfo*";  
