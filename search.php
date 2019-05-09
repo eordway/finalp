@@ -11,7 +11,7 @@ include("flashheader.php");
 
 if (isset($_GET["submit"]) && isset($_GET["term"]) && !empty($_GET["term"]) ) {
 
-	$conn = new mysqli("localhost", "eordway_mysql", "VKIpn7Ae7yYT", "eordway");
+	$conn = new mysqli("localhost", "", "", "eordway");
 	if ($conn->connect_error) die($conn->connect_error);
 	$term = sanitizeMySQL($conn,$_GET["term"]);
 
